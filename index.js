@@ -108,10 +108,18 @@ document.querySelector("#submit").addEventListener("click", () => {
   }
 
   // data setting on local storage and getting data from local storage
-  let storage = JSON.parse(localStorage.getItem("results") || []);
+  let storage = JSON.parse(localStorage.getItem("results"));
+  if (!storage) {
+    // if localStorage have no data return empy array so it will work if previously no data was Store in localStorage
+    storage = []; 
+  }
+  storage.push({
+    marks: totalMark,
+    examTime: timeTaken.innerText,
+    status: grade.status,
+  });
   localStorage.setItem("results", JSON.stringify(storage));
   
-
   // Right side bar/ answer section
   let x = setTimeout(() => {
     showAnswers(answers);
@@ -137,18 +145,18 @@ document.querySelector("#submit").addEventListener("click", () => {
       <h1 class="text-center">Previous Submissions <button class="text-blue-800 text-xs" onclick={localStorage.clear();location.reload()}>Clear History</button></h1>
     <div
     class="flex justify-between items-center border rounded p-2 my-2 shadow-sm font-medium">
-    <div>Marks</div>
-    <div>Grade</div>
-    <div>Time</div>
+    <div class="p-4">Marks</div>
+    <div class="p-4">Grade</div>
+    <div class="p-4">Time</div>
     </div>
     ${storage
       ?.reverse()
       ?.map(
         (item) => `<div
       class="flex justify-between items-center border rounded p-2 my-2 shadow-sm">
-      <div>${item.marks}/60</div>
-      <div>${item.status}</div>
-      <div>${item.examTime}</div>
+      <div class="px-4">${item.marks}/60</div>
+      <div class="px-4">${item.status}</div>
+      <div class="p-4">${item.examTime}</div>
       </div>`
       )
       ?.join("")}`
