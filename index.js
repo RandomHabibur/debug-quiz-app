@@ -108,31 +108,9 @@ document.querySelector("#submit").addEventListener("click", () => {
   }
 
   // data setting on local storage and getting data from local storage
-  let storage = JSON.parse(localStorage.getItem("result"));
-  if (storage) {
-    localStorage.setItem(
-      "results",
-      JSON.stringify([
-        ...storage,
-        {
-          marks: totalMark,
-          examTime: timeTaken.innerText,
-          status: grade.status,
-        },
-      ])
-    );
-  } else {
-    localStorage.setItem(
-      "results",
-      JSON.stringify([
-        {
-          marks: totalMark,
-          examTime: timeTaken.innerText,
-          status: grade.status,
-        },
-      ])
-    );
-  }
+  let storage = JSON.parse(localStorage.getItem("results") || []);
+  localStorage.setItem("results", JSON.stringify(storage));
+  
 
   // Right side bar/ answer section
   let x = setTimeout(() => {
