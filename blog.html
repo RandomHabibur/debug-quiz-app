@@ -55,7 +55,84 @@
       </nav>
     </header>
     <main style="width: 600px !important" class="mx-auto mt-32">
-      <div>
+      <div class="bg-gray-300 p-4 rounded-sm">
+        <h1 class="bg-red-300 text-center p-4 my-5 rounded-lg">
+          Explaination of quizTimer() & chooseQuiz()
+        </h1>
+        <div class="bg-red-400 p-3 rounded">
+          1) quizTimer() function explaination
+        </div>
+        <div class="my-2">Explaination:</div>
+        <div class="pl-4">
+          The function quizTimer takes a single parameter dismiss. If dismiss is
+          true, the function clears the timer interval and stops the timer. The
+          clearInterval function is used to stop the interval previously set by
+          setInterval. If dismiss is false (or not provided), the function
+          proceeds to create a timer interval using setInterval. The interval
+          function within setInterval updates the countdown timer display every
+          second. The timer interval is set to trigger the interval function
+          every 1000 milliseconds (1 second).
+        </div>
+        <div class="bg-red-400 p-3 rounded mt-16">
+          2) what is work of chooseQuiz()
+        </div>
+        <div class="my-2">Explaination:</div>
+        <div>
+          <ul>
+            <li>
+              The function chooseQuiz takes two parameters: index and givenAns.
+              index is the index of the quiz question in the quizData array, and
+              givenAns represents the answer given by the user for that
+              question.
+            </li>
+
+            <li>
+              The function starts by checking if an answer with the same ID as
+              the current quiz question already exists in the answers array. It
+              does this by using the Array.find() method, which iterates through
+              the answers array and looks for an object that has the same id
+              property as the current quiz question in the quizData array.
+            </li>
+
+            <li>
+              If an answer with the same ID exists (i.e., isExist is truthy), it
+              means that the user has previously answered this question, and the
+              function needs to update the existing answer. It enters the first
+              block of the if statement.
+            </li>
+
+            <li>
+              The function then iterates through the answers array using a
+              for...of loop to find the index (serial) of the existing answer
+              that needs to be updated.
+            </li>
+
+            <li>
+              Once the correct index is found, the function uses the
+              Array.splice() method to replace the existing answer at that index
+              with a new object. The new object is created by spreading the
+              properties of the current quiz question (quizData[index]) and
+              adding the givenAns property to represent the user's answer.
+            </li>
+
+            <li>
+              If an answer with the same ID does not exist (i.e., isExist is
+              falsy), it means that the user is answering this question for the
+              first time. The function enters the else block and pushes a new
+              object to the answers array. This new object is created similarly
+              to the one mentioned earlier.
+            </li>
+
+            <li>
+              After updating or adding the answer, the function calls the
+              displayAnswers function and passes the updated answers array as an
+              argument. The purpose of this call is likely to update the UI and
+              display the answers to the user.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="my-32">
         <div class="bg-red-400 p-3 rounded">
           1) What is between map, filter, forEach, find?
         </div>
@@ -103,11 +180,12 @@
         <div class="bg-red-400 p-3 rounded mt-24">
           3) What is the Event Loop and how does it work?
         </div>
-        <div>
-          Ans:
-        </div>
+        <div>Ans:</div>
         <div class="mb-24">
-          If all the statements from the call stack have finished execution <span class="text-cyan-500">Event Loop</span> will pop the statement from the event queue and push it to the call stack. This is how it work
+          If all the statements from the call stack have finished execution
+          <span class="text-cyan-500">Event Loop</span> will pop the statement
+          from the event queue and push it to the call stack. This is how it
+          work
         </div>
       </div>
     </main>
