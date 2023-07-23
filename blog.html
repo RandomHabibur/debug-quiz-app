@@ -48,18 +48,67 @@
         </div>
         <button
           class="bg-green-600 font-light text-sm px-5 py-1 rounded text-white"
-        onclick="redirectToBlog()">
+          onclick="redirectToBlog()"
+        >
           Quiz
         </button>
       </nav>
     </header>
-    <main>
+    <main style="width: 600px !important" class="mx-auto mt-32">
       <div>
-        <p>1) What is between map, filiter, forEach, find?</p>
-        <p>
-          2) What is Difference between localStorage, sessionStorage & cookies?
-        </p>
-        <p>3) What is Event Loop & how it works?</p>
+        <div class="bg-red-400 p-3 rounded">
+          1) What is between map, filter, forEach, find?
+        </div>
+        <div>Ans:</div>
+        <div>
+          <span class="text-cyan-500">map</span>: The map function is used to
+          transform each element of an array and create a new array with these
+          values. It returns an array of the same length as the original array.
+          <br /><br />
+
+          <span class="text-cyan-500">filter</span>: The filter function is used
+          to apply a specific condition and return an array with all the
+          elements that fulfill the condition. <br /><br />
+
+          <span class="text-cyan-500">forEach</span>: The forEach function is
+          used to perform a specific action on each element of an array. It does
+          not return or create a new array. <br /><br />
+
+          <span class="text-cyan-500">find</span>: The find function is used to
+          retrieve the first element in an array that satisfies a specific
+          condition. It returns the first element that matches the condition. If
+          no condition is met, it returns undefined.
+        </div>
+
+        <div class="bg-red-400 p-3 rounded mt-24">
+          2) What is the difference between localStorage, sessionStorage &
+          cookies?
+        </div>
+        <div>Ans:</div>
+        <div>
+          <span class="text-cyan-500">LocalStorage</span> is for store data in
+          browser permatently. When
+          <span class="text-cyan-500">sessionStorage</span> is only store data
+          when only open specific tap and after close that page
+          <span class="text-cyan-500">sessionStorage</span> does not save that
+          data. On the other hand,
+          <span class="text-cyan-500">cookies</span> are used to store data like
+          login information, user preferences, and other session-related data on
+          the client-side. Cookies are small text files that are sent by the
+          server and stored in the user's web browser. They are commonly used to
+          track user activities, personalize user experiences, and maintain
+          session information as users navigate through a website. It's have a
+          expired date after that cookies not working!
+        </div>
+        <div class="bg-red-400 p-3 rounded mt-24">
+          3) What is the Event Loop and how does it work?
+        </div>
+        <div>
+          Ans:
+        </div>
+        <div class="mb-24">
+          If all the statements from the call stack have finished execution <span class="text-cyan-500">Event Loop</span> will pop the statement from the event queue and push it to the call stack. This is how it work
+        </div>
       </div>
     </main>
     <!-- Header/Navbar section end -->
